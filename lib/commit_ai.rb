@@ -63,6 +63,11 @@ class CommitAI
     system("git add --all")
     diff = `git diff --staged`
 
+    if diff.empty?
+      puts "No changes to commit."
+      return
+    end
+
     loop do
       commit_message = generate_commit_message(diff)
       puts "Generated Commit Message: #{commit_message}"
