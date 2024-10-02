@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+# Add the lib directory to the load path for local development
+$LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
+
+require 'commit_ai'
+
+commit_ai = CommitAI.new
+commit_ai.execute
