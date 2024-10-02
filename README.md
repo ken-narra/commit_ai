@@ -30,6 +30,16 @@ To use **CommitAi**, simply run the following command in your terminal after sta
 $ commit_ai
 ```
 
+### Setting Up OpenAI API Key
+
+Before using the gem, set up your OpenAI API key by adding it to your environment variables. You can do this by running:
+
+```bash
+export OPENAI_API_KEY='your_openai_api_key_here'
+```
+
+This command sets the `OPENAI_API_KEY` variable for your current session. To make this change permanent, add the above line to your shell's configuration file (e.g., `.bashrc`, `.bash_profile`, or `.zshrc`).
+
 This command will:
 1. Analyze your staged changes (the `git diff --staged`).
 2. Generate a suggested commit message based on the changes using OpenAI's GPT models.
