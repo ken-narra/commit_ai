@@ -5,5 +5,10 @@ $LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
 
 require 'commit_ai'
 
+if ENV['OPENAI_ACCESS_TOKEN'].nil?
+  puts "OPENAI_ACCESS_TOKEN is not set. Please set it in your environment variables."
+  exit
+end
+
 commit_ai = CommitAI.new
 commit_ai.execute

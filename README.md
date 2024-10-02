@@ -35,10 +35,10 @@ $ commit_ai
 Before using the gem, set up your OpenAI API key by adding it to your environment variables. You can do this by running:
 
 ```bash
-export OPENAI_API_KEY='your_openai_api_key_here'
+export OPENAI_ACCESS_TOKEN='your_openai_access_token_here'
 ```
 
-This command sets the `OPENAI_API_KEY` variable for your current session. To make this change permanent, add the above line to your shell's configuration file (e.g., `.bashrc`, `.bash_profile`, or `.zshrc`).
+This command sets the `OPENAI_ACCESS_TOKEN` variable for your current session. To make this change permanent, add the above line to your shell's configuration file (e.g., `.bashrc`, `.bash_profile`, or `.zshrc`).
 
 This command will:
 1. Analyze your staged changes (the `git diff --staged`).

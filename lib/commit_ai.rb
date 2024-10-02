@@ -2,7 +2,7 @@ require 'openai'
 
 class CommitAI
   def initialize
-    @client = OpenAI::Client.new(access_token: ENV['OPENAI_API_KEY'])
+    @client = OpenAI::Client.new(access_token: ENV['OPENAI_ACCESS_TOKEN'])
   end
 
   def analyze_codebase
