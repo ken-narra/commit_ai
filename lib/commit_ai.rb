@@ -48,7 +48,7 @@ class CommitAI
       parameters: {
         model: "gpt-3.5-turbo",
         messages: [
-          { role: "system", content: "You are a helpful assistant." },
+          { role: "system", content: "You are a Git commit message generator." },
           { role: "user", content: prompt }
         ],
         max_tokens: 50,
