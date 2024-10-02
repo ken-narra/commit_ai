@@ -1,0 +1,39 @@
+PATH
+  remote: .
+  specs:
+    commit_ai (0.1.0)
+      ruby-openai
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    event_stream_parser (1.0.0)
+    faraday (2.12.0)
+      faraday-net_http (>= 2.0, < 3.4)
+      json
+      logger
+    faraday-multipart (1.0.4)
+      multipart-post (~> 2)
+    faraday-net_http (3.3.0)
+      net-http
+    json (2.7.2)
+    logger (1.6.1)
+    multipart-post (2.4.1)
+    net-http (0.4.1)
+      uri
+    rake (13.2.1)
+    ruby-openai (7.1.0)
+      event_stream_parser (>= 0.3.0, < 2.0.0)
+      faraday (>= 1)
+      faraday-multipart (>= 1)
+    uri (0.13.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  commit_ai!
+  rake (~> 13.0)
+
+BUNDLED WITH
+   2.2.3
