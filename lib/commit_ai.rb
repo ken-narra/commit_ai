@@ -41,7 +41,7 @@ class CommitAI
     loop do
       commit_message = generate_commit_message(diff)
       puts "Generated Commit Message: #{commit_message}"
-      print "Do you want to proceed with the commit? (y/n) or regenerate (r): "
+      print "Do you want to proceed with the commit? (y/n), regenerate (r), or edit (e): "
       response = STDIN.gets.chomp
       case response.downcase
       when 'y'
@@ -49,6 +49,9 @@ class CommitAI
         break
       when 'r'
         next
+      when 'e'
+        system("git commit -m '#{commit_message}' -e")
+        break
       else
         puts "Commit aborted."
         break
