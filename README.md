@@ -43,11 +43,12 @@ This command sets the `OPENAI_ACCESS_TOKEN` variable for your current session. T
 This command will:
 1. Analyze your staged changes (the `git diff --staged`).
 2. Generate a suggested commit message based on the changes using OpenAI's GPT models.
-3. Present the generated message, allowing you to accept or regenerate it as needed.
+3. Present the generated message, allowing you to accept, regenerate, or edit it as needed.
 
 ### Options During Execution:
 - **y**: Accept the generated commit message and proceed with the commit.
 - **r**: Regenerate a new commit message.
+- **e**: Edit the generated commit message.
 - **n**: Abort the commit.
 
 ## Development
