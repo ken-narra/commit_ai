@@ -10,7 +10,7 @@ class CommitAI
     diff = `git diff -U10 --staged`
 
     if diff.empty?
-      puts "No changes to commit."
+      puts "No changes to commit. No need to proceed."
       return
     end
 
@@ -30,15 +30,18 @@ class CommitAI
       case response.downcase
       when 'y'
         system("git commit -m '#{commit_message}'")
+        puts "Commit successful!"
         break
       when 'r'
         commit_message = generate_commit_message(diff, message_style, user_description)
+        puts "Regenerating commit message..."
         next
       when 'e'
         system("git commit -m '#{commit_message}' -e")
+        puts "Commit successful after editing!"
         break
       when 'n'
-        puts "Commit aborted."
+        puts "Commit aborted. No changes committed."
         break
       else
         puts "Invalid input. Please try again."
