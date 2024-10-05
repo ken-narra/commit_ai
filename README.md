@@ -1,4 +1,4 @@
-# commit_ai
+# [commit_ai](https://rubygems.org/gems/commit_ai)
 
 Welcome to **commit_ai**, a Ruby gem designed to help developers generate meaningful commit messages automatically by analyzing staged git diffs using OpenAI's GPT models. Whether you're working with single-line or multi-line commits, CommitAi streamlines the commit process by providing concise, informative, and context-aware messages that follow best practices. With optional user input for change descriptions and smart minification of the git diff, this gem ensures clarity while preserving essential details in your commit messages.
 
@@ -6,19 +6,7 @@ Welcome to **commit_ai**, a Ruby gem designed to help developers generate meanin
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'commit_ai'
-```
-
-And then execute:
-
-```bash
-$ bundle install
-```
-
-Or install it yourself as:
+You can install **commit_ai** by running the following command in your terminal:
 
 ```bash
 $ gem install commit_ai
