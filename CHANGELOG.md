@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] - 2024-10-06
+
+### Changed
+- Added colorized terminal output using ANSI escape codes for better readability and user experience in the commit process.
+- Improved the structure of user prompts, including enhanced spacing and clearer formatting.
+
 ## [0.1.8] - 2024-10-05
 ### Added
 - Added a feature that prompts the user to provide a brief description of the change, which is then used along with the `git diff` to generate more accurate and meaningful commit messages.
