@@ -10,6 +10,8 @@ class CommitAI
                <<~PROMPT
                  This is the git diff: #{diff}
 
+                 A git diff shows the changes made in a commit, where lines prefixed with a '+' indicate additions and lines prefixed with a '-' indicate deletions.
+
                  Please generate a **single-line** commit message that is concise and follows best practices.
                  **Do not include any extra text or formatting** like triple backticks (```) or code block delimiters.
                  Only return the commit message.
@@ -17,6 +19,8 @@ class CommitAI
              else
                <<~PROMPT
                  This is the git diff: #{diff}
+
+                 A git diff shows the changes made in a commit, where lines prefixed with a '+' indicate additions and lines prefixed with a '-' indicate deletions.
 
                  Please generate a **multi-line** commit message that is clear, concise, and follows best practices.
                  The first line should be a short summary of the change.
