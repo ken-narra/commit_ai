@@ -57,8 +57,7 @@ class CommitAI
       return
     end
 
-    # Ask user for a description of the changes
-    puts "Please provide a brief description of the change made: "
+    puts "Please provide a brief description of the change made (optional): "
     user_description = STDIN.gets.chomp
 
     puts "Choose commit message style: single-line (s) or multi-line (m): "
