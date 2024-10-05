@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Added
 - Added a feature that prompts the user to provide a brief description of the change, which is then used along with the `git diff` to generate more accurate and meaningful commit messages.
 - Introduced an option for users to select between single-line and multi-line commit messages, incorporating both the `git diff` and the user-provided description for clarity.
+- Added support for "minifying" the `git diff` output by limiting unchanged context lines around the actual changes, making the diff more concise while retaining necessary context for accurate commit messages.
 
 ### Fixed
 - Improved clarity in the user prompts for selecting commit message style and finalizing commit actions.
@@ -15,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Improved
 - Refined OpenAI prompts to ensure that commit messages are concise, human-like, and incorporate both technical changes from `git diff` and the user's intent.
+- Optimized the `git diff` output by trimming unnecessary surrounding context, showing only a limited number of unchanged lines around modifications to enhance readability and reduce noise.
 
 ## [0.1.0] - 2024-10-03
 ### Added
