@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Ken Vitug"]
   spec.email         = ["ken@narralabs.com"]
 
-  spec.summary       = "A Ruby gem that utilizes OpenAI to create concise and meaningful commit messages based on the differences in your git changes."
-  spec.description   = "Commit AI automates the generation of insightful one-liner commit messages by analyzing staged git diffs with the help of OpenAI's advanced language models."
+  spec.summary       = "A Ruby gem that utilizes OpenAI to create concise and meaningful commit messages based on staged git changes."
+  spec.description   = "Commit AI automates the generation of insightful single-line and multi-line commit messages by analyzing staged git diffs with OpenAI's advanced language models. It allows users to provide optional change descriptions for better context, and smartly minifies the git diff to focus on the essential changes, ensuring clarity and best practices."
   spec.homepage      = "https://github.com/ken-narra/commit_ai"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
