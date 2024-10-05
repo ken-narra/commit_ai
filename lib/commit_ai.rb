@@ -21,23 +21,29 @@ class CommitAI
     message_style_input = STDIN.gets.chomp.downcase
     message_style = message_style_input == 'y' ? 'multi' : 'single'
 
+    commit_message = generate_commit_message(diff, message_style, user_description)
     loop do
-      commit_message = generate_commit_message(diff, message_style, user_description)
       puts "Generated Commit Message:\n#{commit_message}"
-      print "Do you want to proceed with the commit? (y/n), regenerate (r), or edit (e): "
+      puts ""
+      puts "Do you want to proceed with the commit? (y/n), regenerate (r), or edit (e): "
       response = STDIN.gets.chomp
       case response.downcase
       when 'y'
         system("git commit -m '#{commit_message}'")
         break
       when 'r'
+        commit_message = generate_commit_message(diff, message_style, user_description)
         next
       when 'e'
         system("git commit -m '#{commit_message}' -e")
         break
-      else
+      when 'n'
         puts "Commit aborted."
         break
+      else
+        puts "Invalid input. Please try again."
+        puts ""
+        next
       end
     end
   end
