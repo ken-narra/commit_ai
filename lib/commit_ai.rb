@@ -7,7 +7,7 @@ class CommitAI
 
   def execute
     system("git add --all")
-    diff = `git diff -U99999 --staged`
+    diff = `git diff -U10 --staged`
 
     if diff.empty?
       puts "No changes to commit."
