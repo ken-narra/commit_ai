@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    commit_ai (0.1.0)
+    commit_ai (0.2.0)
       ruby-openai
 
 GEM
