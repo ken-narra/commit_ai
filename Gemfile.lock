@@ -2,11 +2,13 @@ PATH
   remote: .
   specs:
     commit_ai (0.2.0)
+      colorize
       ruby-openai
 
 GEM
   remote: https://rubygems.org/
   specs:
+    colorize (1.1.0)
     event_stream_parser (1.0.0)
     faraday (2.12.0)
       faraday-net_http (>= 2.0, < 3.4)

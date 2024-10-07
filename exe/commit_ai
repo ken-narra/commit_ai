@@ -4,9 +4,10 @@
 $LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
 
 require 'commit_ai'
+require 'colorize'
 
 if ENV['OPENAI_ACCESS_TOKEN'].nil?
-  puts "OPENAI_ACCESS_TOKEN is not set. Please set it in your environment variables."
+  puts "OPENAI_ACCESS_TOKEN is not set. Please set it in your environment variables.".colorize(:red)
   exit
 end
 

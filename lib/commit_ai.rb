@@ -1,4 +1,5 @@
 require 'openai'
+require 'colorize'
 
 class CommitAI
   def initialize
@@ -10,41 +11,41 @@ class CommitAI
     diff = `git diff -U10 --staged`
 
     if diff.empty?
-      puts colorize("No changes to commit. No need to proceed.", 31)
+      puts "No changes to commit. No need to proceed.".colorize(:red)
       return
     end
 
-    puts colorize("Please provide a brief description of the change made (optional):", 36)
+    puts "Please provide a brief description of the change made (optional):".colorize(:cyan)
     user_description = STDIN.gets.chomp
 
-    puts colorize("Do you want a multi-line commit message? (y/n) (optional):", 36)
+    puts "Do you want a multi-line commit message? (y/n) (optional):".colorize(:cyan)
     message_style_input = STDIN.gets.chomp.downcase
     message_style = message_style_input == 'y' ? 'multi' : 'single'
 
     commit_message = generate_commit_message(diff, message_style, user_description)
     loop do
-      puts colorize("\nGenerated Commit Message:\n#{commit_message}", 32)
+      puts "\nGenerated Commit Message:\n#{commit_message}".colorize(:green)
       puts ""
-      puts colorize("Do you want to proceed with the commit? (y/n), regenerate (r), or edit (e):", 36)
+      puts "Do you want to proceed with the commit? (y/n), regenerate (r), or edit (e):".colorize(:cyan)
       response = STDIN.gets.chomp
       case response.downcase
       when 'y'
         system("git commit -m '#{commit_message}'")
-        puts colorize("Commit successful!", 32)
+        puts "Commit successful!".colorize(:green)
         break
       when 'r'
         commit_message = generate_commit_message(diff, message_style, user_description)
-        puts colorize("Regenerating commit message...", 33)
+        puts "Regenerating commit message...".colorize(:yellow)
         next
       when 'e'
         system("git commit -m '#{commit_message}' -e")
-        puts colorize("Commit successful after editing!", 32)
+        puts "Commit successful after editing!".colorize(:green)
         break
       when 'n'
-        puts colorize("Commit aborted. No changes committed.", 31)
+        puts "Commit aborted. No changes committed.".colorize(:red)
         break
       else
-        puts colorize("Invalid input. Please try again.", 31)
+        puts "Invalid input. Please try again.".colorize(:red)
         puts ""
         next
       end
@@ -115,9 +116,5 @@ class CommitAI
     end
 
     minified_diff.join
-  end
-
-  def colorize(text, color_code)
-    "\e[#{color_code}m#{text}\e[0m"
   end
 end

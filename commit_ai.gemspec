@@ -29,6 +29,7 @@ Gem::Specification.new do |spec|
 
   # Add dependencies
   spec.add_dependency 'ruby-openai'
+  spec.add_dependency 'colorize'
 
   # For more information and examples about making a new gem, checkout our
   # guide at: https://bundler.io/guides/creating_gem.html
