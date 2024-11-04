@@ -4,6 +4,7 @@ require 'colorize'
 class CommitAI
   def initialize
     @client = OpenAI::Client.new(access_token: ENV['OPENAI_ACCESS_TOKEN'])
+    @enabled_pretext = ENV['COMMIT_AI_ENABLED_PRETEXT'] == '1'
   end
 
   def execute
@@ -15,6 +16,11 @@ class CommitAI
       return
     end
 
+    if @enabled_pretext
+      puts "Please provide a pretext for the commit message (optional):".colorize(:cyan)
+      pretext = STDIN.gets.chomp
+    end
+
     puts "Please provide a brief description of the change made (optional):".colorize(:cyan)
     user_description = STDIN.gets.chomp
 
@@ -24,13 +30,17 @@ class CommitAI
 
     commit_message = generate_commit_message(diff, message_style, user_description)
     loop do
-      puts "\nGenerated Commit Message:\n#{commit_message}".colorize(:green)
+      if @enabled_pretext
+        puts "\nGenerated Commit Message:\n#{pretext}: #{commit_message}".colorize(:green)
+      else
+        puts "\nGenerated Commit Message:\n#{commit_message}".colorize(:green)
+      end
       puts ""
       puts "Do you want to proceed with the commit? (y/n), regenerate (r), or edit (e):".colorize(:cyan)
       response = STDIN.gets.chomp
       case response.downcase
       when 'y'
-        system("git commit -m '#{commit_message}'")
+        system(@enabled_pretext ? "git commit -m '#{pretext}: #{commit_message}'" : "git commit -m '#{commit_message}'")
         puts "Commit successful!".colorize(:green)
         break
       when 'r'
